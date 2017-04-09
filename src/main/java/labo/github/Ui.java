@@ -11,7 +11,7 @@ public class Ui {
         _api = new GitHubApi();
     }
 
-    public void searchRepository() {
+    public void searchRepositories() {
         String input = this.getInput();
         this.searchAndShow(input);
     }
