@@ -32,9 +32,6 @@ dependencies {
     provided 'org.projectlombok:lombok:1.16.10'
 }
 
-jar {
-    manifest {
-        attributes "Main-Class" : "labo.Main"
-    }
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+run {
+    standardInput = System.in
 }
