@@ -12,8 +12,13 @@ public class Ui {
     }
 
     public void searchRepositories() {
-        String input = this.getInput();
-        this.searchAndShow(input);
+        while (true) {
+            String input = this.getInput();
+
+            if (input.equals("")) break;
+
+            this.searchAndShow(input);
+        }
     }
 
     public String getInput() {
