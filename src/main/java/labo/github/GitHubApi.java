@@ -11,12 +11,13 @@ public class GitHubApi {
 
     public GitHubApi() {
         Client client = ClientBuilder.newClient();
-        // _target = client.target("http://localhost:3000/repositories.json");
-        _target = client.target("https://api.github.com/search/repositories?q=gitlab");
+        _target = client.target("https://api.github.com/search/repositories");
     }
 
     public RepositoriesResult searchRepositories(String keyword) {
-        return _target.request(MediaType.APPLICATION_JSON_TYPE)
+        return _target
+                .queryParam("q", keyword)
+                .request(MediaType.APPLICATION_JSON_TYPE)
                 .get(RepositoriesResult.class);
     }
 }
