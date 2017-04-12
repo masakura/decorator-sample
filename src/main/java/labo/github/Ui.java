@@ -21,7 +21,7 @@ public class Ui {
         }
     }
 
-    public String getInput() {
+    private String getInput() {
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(is);
 
@@ -36,8 +36,8 @@ public class Ui {
         }
     }
 
-    public void searchAndShow(String keyword) {
-        RepositoriesResult result = _api.searchRepositories("gitlab");
+    private void searchAndShow(String keyword) {
+        RepositoriesResult result = _api.searchRepositories(keyword);
 
         for (Repository repo : result.getItems()) {
             System.out.println(repo.getFull_name() + " => " + repo.getHtml_url());

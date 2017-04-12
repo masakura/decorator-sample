@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @lombok.Data
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement

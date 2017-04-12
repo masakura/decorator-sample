@@ -5,6 +5,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+@SuppressWarnings("WeakerAccess")
 public class GitHubApi {
     private final WebTarget _target;
 
