@@ -3,19 +3,20 @@ package labo.github;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class Ui {
-    private final GitHubApi _api;
+    private final GitHubApi api;
 
     public Ui() {
-        _api = new GitHubApi();
+        api = new GitHubApi();
     }
 
     public void searchRepositories() {
         while (true) {
             String input = this.getInput();
 
-            if (input.equals("")) break;
+            if (Objects.equals(input, "")) break;
 
             this.searchAndShow(input);
         }
@@ -37,7 +38,7 @@ public class Ui {
     }
 
     private void searchAndShow(String keyword) {
-        RepositoriesResult result = _api.searchRepositories(keyword);
+        RepositoriesResult result = api.searchRepositories(keyword);
 
         for (Repository repo : result.getItems()) {
             System.out.println(repo.getFull_name() + " => " + repo.getHtml_url());

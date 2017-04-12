@@ -7,15 +7,15 @@ import javax.ws.rs.core.MediaType;
 
 @SuppressWarnings("WeakerAccess")
 public class GitHubApi {
-    private final WebTarget _target;
+    private final WebTarget target;
 
     public GitHubApi() {
         Client client = ClientBuilder.newClient();
-        _target = client.target("https://api.github.com/search/repositories");
+        target = client.target("https://api.github.com/search/repositories");
     }
 
     public RepositoriesResult searchRepositories(String keyword) {
-        return _target
+        return target
                 .queryParam("q", keyword)
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .get(RepositoriesResult.class);
