@@ -6,6 +6,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 @SuppressWarnings("WeakerAccess")
-public abstract class GitHubApi {
-    public abstract RepositoriesResult searchRepositories(String keyword);
+public interface GitHubApi {
+    public RepositoriesResult searchRepositories(String keyword);
 }

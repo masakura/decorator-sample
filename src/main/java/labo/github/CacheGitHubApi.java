@@ -3,7 +3,7 @@ package labo.github;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CacheGitHubApi extends GitHubApi {
+public class CacheGitHubApi implements GitHubApi {
     private final Map<String, RepositoriesResult> cache;
     private final GitHubApi source;
 
@@ -12,7 +12,6 @@ public class CacheGitHubApi extends GitHubApi {
         this.source = source;
     }
 
-    @Override
     public RepositoriesResult searchRepositories(String keyword) {
         RepositoriesResult result = cache.getOrDefault(keyword, null);
 
