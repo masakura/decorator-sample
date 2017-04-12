@@ -9,7 +9,7 @@ public class Ui {
     private final GitHubApi api;
 
     public Ui() {
-        api = new CacheGitHubApi(new RawGitHubApi());
+        api = GitHubApiFactory.get();
     }
 
     public void searchRepositories() {
