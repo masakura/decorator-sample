@@ -14,11 +14,13 @@ public class Ui {
 
     public void searchRepositories() {
         while (true) {
-            String input = this.getInput();
+            String input = getInput();
 
             if (Objects.equals(input, "")) break;
 
-            this.searchAndShow(input);
+            RepositoriesResult result = api.searchRepositories(input);
+
+            display(result);
         }
     }
 
@@ -30,16 +32,13 @@ public class Ui {
 
         try {
             return br.readLine();
-
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private void searchAndShow(String keyword) {
-        RepositoriesResult result = api.searchRepositories(keyword);
-
+    private void display(RepositoriesResult result) {
         for (Repository repo : result.getItems()) {
             System.out.println(repo.getFull_name() + " => " + repo.getHtml_url());
         }
